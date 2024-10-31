@@ -753,7 +753,7 @@ class AdvantageActorCriticAgent(PolicyGradientAgent):
 
         Raises
         ------
-        FileNotFoundError
+        FileNotFoundError -
             The file is not loaded if not found and an error message is printed,
             this error does not affect the functioning of the program
         """
@@ -775,7 +775,7 @@ class AdvantageActorCriticAgent(PolicyGradientAgent):
         if(self._use_target_net):
             self._target_net.set_weights(self._values_model.get_weights())
 
-    def train_agent(self, batch_size=32, beta=0.001, normalize_rewards=False,
+    def train_agent(self, batch_size=32, beta=0.0001, normalize_rewards=False,
                     num_games=1, reward_clip=False):
         """Train the model by sampling from buffer and return the error
         The buffer is assumed to contain all states of a finite set of games
