@@ -11,7 +11,7 @@ import numpy as np
 from collections import deque
 import matplotlib.pyplot as plt
 import pickle
-import tensorflow as tf
+# import tensorflow as tf
 
 class Position:
     """Class for defining any position on a 2D grid
@@ -439,7 +439,7 @@ class Snake:
             valid moves mask for all games
         """    
         a = np.ones((1, self._n_actions), dtype=np.uint8)
-        a[0, (self._snake_direction-2)%4] = 0
+        a[0, (self._snake_direction-2)%3] = 0
         return a.copy()
 
     def _get_food_reward(self):
@@ -730,7 +730,7 @@ class SnakeNumpy:
         model version string
     """
     def __init__(self, board_size=10, frames=2, games=10, start_length=2, seed=42,
-                 max_time_limit=298, frame_mode=False, obstacles=False, version=''):
+                 max_time_limit=298, frame_mode=True, obstacles=False, version=''):
         """Initialization function for the environment. Not all the attributes
         are populated here. Some will be populated in the reset function so
         that the same environment can be used multiple times

@@ -12,13 +12,22 @@ import pandas as pd
 import time
 from utils import play_game, play_game2
 from game_environment import Snake, SnakeNumpy
-import tensorflow as tf
+# import tensorflow as tf
+import torch
+
 from agent import DeepQLearningAgent, PolicyGradientAgent,\
                 AdvantageActorCriticAgent, mean_huber_loss
 import json
 
+import torch
+print("CUDA tilgjengelig:", torch.cuda.is_available())
+if torch.cuda.is_available():
+    print("Kjører på:", torch.cuda.get_device_name(torch.cuda.current_device()))
+
 # some global variables
-tf.random.set_seed(42)
+# tf.random.set_seed(42)
+
+torch.manual_seed(42)
 version = 'v17.1'
 
 # get training configurations
@@ -28,6 +37,7 @@ with open('model_config/{:s}.json'.format(version), 'r') as f:
     frames = m['frames'] # keep frames >= 2
     max_time_limit = m['max_time_limit']
     supervised = bool(m['supervised'])
+    # n_actions = m['n_actions']
     n_actions = m['n_actions']
     obstacles = bool(m['obstacles'])
     buffer_size = m['buffer_size']

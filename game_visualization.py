@@ -21,7 +21,14 @@ with open('model_config/{:s}.json'.format(version), 'r') as f:
     n_actions = m['n_actions']
     obstacles = bool(m['obstacles'])
 
-iteration_list = [163500]
+"""
+Iteration: 192,000
+Average Reward: 25.5
+Average Game Length: 28.5 steps
+Loss: 0.0558
+Games Played: 8
+"""
+iteration_list = [192000]
 max_time_limit = 398
 
 # setup the environment
