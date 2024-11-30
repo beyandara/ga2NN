@@ -2,3 +2,6 @@ __pycache__/
 models_1/
 virtual-env/
 virtual-env-gpu/
+*.exe
+*.mp4
+ffmpeg-2024-11-25-git-04ce01df0b-full_build/
