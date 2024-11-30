@@ -548,7 +548,8 @@ class DeepQLearningAgent(Agent):
         return loss.item()
 
     def update_target_net(self):
-        """Update the weights of the target network, which is kept
+        """
+        Update the weights of the target network, which is kept
         static for a few iterations to stabilize the other network.
         This should not be updated very frequently
         """
